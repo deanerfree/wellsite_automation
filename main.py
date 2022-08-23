@@ -1,30 +1,21 @@
-from porosity import set_porosity
+from helper.porosity import set_porosity
+from helper.edit_geoforms import edit_geo_forms
+from helper.set_intrvls import set_intrvls
 
 # 4407 unique identifier for porosity
 
-data_file = "rawData.dat"
+data_file = "input_files/rawData.dat"
 
-start_point=0
-end_point=0
-while isinstance(start_point, float) == False or isinstance(start_point, int) == False:  
-  start_point = input("Enter the start depth: ")
-  try: 
-    float(start_point)
-    break
-  except ValueError:
-    try: int(start_point)
-    except ValueError:
-      print("Please enter a number")
+porosity_log = "input_files/WL_Geoforms.xlsm"
+# data =  {'por0': 92.0, 'por1': 88.5, 'por2': 371.5, 'por3': 628.0, 'por4': 305.0, 'por5': 8.5}
+output_file = "output_files/demo.xlsm"
 
-while isinstance(end_point, float) == False or isinstance(end_point, int) == False: 
-  end_point = input("Enter the end depth: ")
-  try: 
-    float(end_point)
-    break
-  except ValueError:
-    try: int(end_point)
-    except ValueError:
-      print("Please enter a number")
+start_message = "Enter the start depth: "
+end_message = "Enter the end depth: "
+
+
+start_point = set_intrvls(start_message)
+end_point = set_intrvls(end_message)
    
 value = set_porosity(data_file, start_point, end_point)
-print(value)
+edit_geo_forms(porosity_log, value, output_file)

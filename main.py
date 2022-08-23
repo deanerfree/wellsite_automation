@@ -6,7 +6,7 @@ from helper.set_intrvls import set_intrvls
 
 data_file = "input_files/rawData.dat"
 
-porosity_log = "input_files/WL_Geoforms.xlsm"
+porosity_ss = "input_files/WL_Geoforms.xlsm"
 # data =  {'por0': 92.0, 'por1': 88.5, 'por2': 371.5, 'por3': 628.0, 'por4': 305.0, 'por5': 8.5}
 output_file = "output_files/demo.xlsm"
 
@@ -17,5 +17,5 @@ end_message = "Enter the end depth: "
 start_point = set_intrvls(start_message)
 end_point = set_intrvls(end_message)
    
-value = set_porosity(data_file, start_point, end_point)
-edit_geo_forms(porosity_log, value, output_file)
+porosity_values = set_porosity(data_file, start_point, end_point)
+edit_geo_forms(porosity_ss, porosity_values, output_file)

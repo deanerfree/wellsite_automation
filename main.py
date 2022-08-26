@@ -21,9 +21,9 @@ def check(data):
   charenc = result['encoding']
   print(charenc)
 
-check(data_file2)
+# check(data_file2)
 start_point = set_intrvls(start_message)
 end_point = set_intrvls(end_message)
    
-porosity_values = set_porosity(data_file2, start_point, end_point)
+porosity_values = set_porosity(data_file, start_point, end_point)
 edit_geo_forms(porosity_ss, porosity_values, output_file)

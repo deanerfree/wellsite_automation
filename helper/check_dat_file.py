@@ -47,6 +47,8 @@ def check_data_exists(leg_update, data_file):
     for well in well_data_reader:
       if len(well) >= 4 and well[1] == target_value:
         file_name = well[4].replace(" ","")[:-4].lower()
+        # for letter in file_name:
+
         target = file_name.find(cleanedupdata)
         if target:
           return True

@@ -5,26 +5,27 @@ import csv
 def sum_porosity(por_values, well_data, value, count, start_point, end_point):
   for well in well_data:
     if(len(well) >= 4 and well[2] == value):
-
-          if(float(well[0].replace(" ","")) >= float(start_point) and float(well[4]) <= float(end_point)):
-            count += float(well[4])-float(well[0].replace(" ",""))
-            if(well[5] == '0' or well[5] == '1'):
-              por_values['por0'] = float(well[4])-float(well[0].replace(" ",""))+por_values['por0']
-            if(well[5] == '2'):
-              por_values['por1'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por1"]
-            if(well[5] == '3'):
-              por_values['por2'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por2"]
-            if(well[5] == '4'):
-              por_values['por3'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por3"]
-            if(well[5] == '5'):
-              por_values['por4'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por4"]
-            if(well[5] == '6' or well[5] == '7'):
-              por_values['por5'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por5"]
+        if float(well[0])>=float(start_point):
+          # if(float(well[0].replace(" ","")) >= float(start_point) and float(well[4]) <= float(end_point)):
+          count += float(well[4])-float(well[0].replace(" ",""))
+          if(well[5] == '0' or well[5] == '1'):
+            por_values['por0'] = float(well[4])-float(well[0].replace(" ",""))+por_values['por0']
+          if(well[5] == '2'):
+            por_values['por1'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por1"]
+          if(well[5] == '3'):
+            por_values['por2'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por2"]
+          if(well[5] == '4'):
+            por_values['por3'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por3"]
+          if(well[5] == '5'):
+            por_values['por4'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por4"]
+          if(well[5] == '6' or well[5] == '7'):
+            por_values['por5'] = float(well[4])-float(well[0].replace(" ",""))+por_values["por5"]
 
     else:
       continue
   sumtotal = por_values['por0']+por_values['por1']+por_values['por2']+por_values['por3']+por_values['por4']+por_values['por5']
   print(sumtotal)
+  print(por_values)
   return por_values
 
 def set_porosity (data_file, start_point, end_point):

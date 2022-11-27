@@ -1,6 +1,6 @@
 from helper.check_dat_file import set_porosity
 from helper.edit_geoforms import edit_geo_forms
-from helper.set_intrvls import set_intrvls
+from helper.set_intrvls import set_intrvls, set_target_leg
 import chardet
 
 # 4407 unique identifier for porosity
@@ -24,6 +24,9 @@ def check(data):
 # check(data_file2)
 start_point = set_intrvls(start_message)
 end_point = set_intrvls(end_message)
+find_leg = set_target_leg("What leg: ")
+print(find_leg)
+
    
 porosity_values = set_porosity(data_file, start_point, end_point)
 edit_geo_forms(porosity_ss, porosity_values, output_file)
